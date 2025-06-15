@@ -57,7 +57,7 @@
     nav a.active {
       color: #007bff;
     }
-    #dark-mode-toggle, #language-toggle {
+    #dark-mode-toggle {
       background: #007bff;
       border: none;
       color: white;
@@ -66,9 +66,8 @@
       cursor: pointer;
       font-weight: 600;
       transition: background-color 0.3s ease;
-      margin-left: 10px;
     }
-    #dark-mode-toggle:hover, #language-toggle:hover {
+    #dark-mode-toggle:hover {
       background-color: #0056b3;
     }
     section {
@@ -270,12 +269,17 @@
   <header>
     <div class="logo">Mohamed Adel</div>
     <nav>
-      <a href="#home" class="nav-link active" data-en="Home" data-ar="الرئيسية">Home</a>
-      <a href="#about" class="nav-link" data-en="About" data-ar="من أنا">About</a>
-      <a href="#services" class="nav-link" data-en="Services" data-ar="الخدمات">Services</a>
-      <a href="#projects" class="nav-link" data-en="Projects" data-ar="المشاريع">Projects</a>
-      <a href="#contact" class="nav-link" data-en="Contact" data-ar="اتصل بي">Contact</a>
-      <button id="language-toggle" aria-label="Toggle language">عربي</button>
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#contact" class="nav-link">Contact</a>
+
+      <!-- زر تغيير اللغة -->
+      <button id="language-toggle" aria-label="Toggle language" style="margin-right: 10px; padding: 8px 12px; border-radius:5px; border:none; cursor:pointer; background-color:#28a745; color:white; font-weight:600; transition: background-color 0.3s ease;">
+        AR
+      </button>
+
       <button id="dark-mode-toggle" aria-label="Toggle dark mode">Dark Mode</button>
     </nav>
   </header>
@@ -283,12 +287,11 @@
   <section id="home">
     <img src="assets/images/Mohamed%20Adel.png" alt="Mohamed Adel's photo" />
     <div class="intro-text">
-      <h2 data-en="Hello, I'm Mohamed Adel" data-ar="مرحباً، أنا محمد عادل">
-        Hello, I'm Mohamed Adel
-        <a href="assets/files/_Resume%20Mohamed%20Adel%20EL%20Refaey.pdf" download class="btn-cv" aria-label="Download CV" data-en="Download CV" data-ar="تحميل السيرة الذاتية">Download CV</a>
+      <h2>
+        <span id="intro-greeting">Hello, I'm Mohamed Adel</span>
+        <a href="https://mohamedadel-dev.github.io/assets/files/_Resume%20Mohamed%20Adel%20EL%20Refaey.pdf" download class="btn-cv" aria-label="Download CV" data-en="Download CV" data-ar="تحميل السيرة الذاتية">Download CV</a>
       </h2>
-      <p data-en="Electronics and Communications Engineer and student at Delta University. I work on tech and entrepreneurial projects and contribute to innovative solutions."
-         data-ar="مهندس إلكترونيات واتصالات وطالب في جامعة الدلتا. أعمل على مشاريع تقنية وريادية وأساهم في حلول مبتكرة.">
+      <p id="intro-description">
         Electronics and Communications Engineer and student at Delta University. I work on tech and entrepreneurial projects and contribute to innovative solutions.
       </p>
 
@@ -308,7 +311,7 @@
   </section>
 
   <section id="about">
-    <h2 data-en="About Me" data-ar="من أنا">About Me</h2>
+    <h2 data-en="About Me" data-ar="عني">About Me</h2>
     <div class="section-content">
       <p data-en="I am passionate about engineering and modern technologies. I believe in developing my skills and innovating to serve the community. I participate in educational and entrepreneurial initiatives aimed at building a distinguished generation."
          data-ar="أنا شغوف بالهندسة والتقنيات الحديثة. أؤمن بتطوير مهاراتي والابتكار لخدمة المجتمع. أشارك في مبادرات تعليمية وريادية تهدف لبناء جيل متميز.">
@@ -321,7 +324,7 @@
     <h2 data-en="Services" data-ar="الخدمات">Services</h2>
     <div class="section-content">
       <ul>
-        <li data-en="Websites and web applications development." data-ar="تطوير مواقع وتطبيقات الويب.">Websites and web applications development.</li>
+        <li data-en="Websites and web applications development." data-ar="تطوير المواقع وتطبيقات الويب.">Websites and web applications development.</li>
         <li data-en="Designing innovative technical solutions." data-ar="تصميم حلول تقنية مبتكرة.">Designing innovative technical solutions.</li>
         <li data-en="Training and workshops in technology and entrepreneurship." data-ar="تدريب وورش عمل في التكنولوجيا وريادة الأعمال.">Training and workshops in technology and entrepreneurship.</li>
       </ul>
@@ -332,7 +335,7 @@
     <h2 data-en="Projects" data-ar="المشاريع">Projects</h2>
     <div class="section-content">
       <ul>
-        <li data-en="EcoNet Project: An app for smart environmental solutions." data-ar="مشروع EcoNet: تطبيق للحلول البيئية الذكية.">EcoNet Project: An app for smart environmental solutions.</li>
+        <li data-en="EcoNet Project: An app for smart environmental solutions." data-ar="مشروع EcoNet: تطبيق لحلول بيئية ذكية.">EcoNet Project: An app for smart environmental solutions.</li>
         <li data-en="Developing a tuk-tuk transport system for remote areas." data-ar="تطوير نظام نقل التوك توك للمناطق النائية.">Developing a tuk-tuk transport system for remote areas.</li>
         <li data-en="Interactive educational bot for students." data-ar="بوت تعليمي تفاعلي للطلاب.">Interactive educational bot for students.</li>
       </ul>
@@ -340,12 +343,12 @@
   </section>
 
   <section id="contact">
-    <h2 data-en="Contact Me" data-ar="اتصل بي">Contact Me</h2>
+    <h2 data-en="Contact Me" data-ar="تواصل معي">Contact Me</h2>
     <form>
-      <input type="text" placeholder="Name" required data-en-placeholder="Name" data-ar-placeholder="الاسم" />
-      <input type="email" placeholder="Email" required data-en-placeholder="Email" data-ar-placeholder="البريد الإلكتروني" />
-      <textarea rows="5" placeholder="Your message" required data-en-placeholder="Your message" data-ar-placeholder="رسالتك"></textarea>
-      <button type="submit" data-en="Send" data-ar="إرسال">Send</button>
+      <input type="text" placeholder="Name" required />
+      <input type="email" placeholder="Email" required />
+      <textarea rows="5" placeholder="Your message" required></textarea>
+      <button type="submit">Send</button>
     </form>
   </section>
 
@@ -383,80 +386,73 @@
     function setDarkMode(enabled) {
       if (enabled) {
         body.classList.add('dark');
-        darkModeToggle.textContent = (currentLang === 'ar') ? 'الوضع النهاري' : 'Light Mode';
+        darkModeToggle.textContent = 'Light Mode';
       } else {
         body.classList.remove('dark');
-        darkModeToggle.textContent = (currentLang === 'ar') ? 'الوضع الداكن' : 'Dark Mode';
+        darkModeToggle.textContent = 'Dark Mode';
       }
       localStorage.setItem('darkMode', enabled);
     }
 
-    // Language toggle
-    const languageToggle = document.getElementById('language-toggle');
-    let currentLang = localStorage.getItem('lang') || 'en';
-
-    function updateLanguage(lang) {
-      currentLang = lang;
-      document.documentElement.lang = lang;
-      if(lang === 'ar'){
-        document.documentElement.dir = 'rtl';
-        languageToggle.textContent = 'EN';
-        // تعديل النصوص للعربية
-        document.querySelectorAll('[data-en]').forEach(el => {
-          if(el.placeholder !== undefined) {
-            el.placeholder = el.getAttribute('data-ar-placeholder') || el.placeholder;
-          }
-          if(el.tagName.toLowerCase() === 'input' || el.tagName.toLowerCase() === 'textarea'){
-            el.placeholder = el.getAttribute('data-ar-placeholder') || el.placeholder;
-          } else {
-            el.textContent = el.getAttribute('data-ar') || el.textContent;
-          }
-        });
-      } else {
-        document.documentElement.dir = 'ltr';
-        languageToggle.textContent = 'عربي';
-        // تعديل النصوص للإنجليزية
-        document.querySelectorAll('[data-en]').forEach(el => {
-          if(el.placeholder !== undefined) {
-            el.placeholder = el.getAttribute('data-en-placeholder') || el.placeholder;
-          }
-          if(el.tagName.toLowerCase() === 'input' || el.tagName.toLowerCase() === 'textarea'){
-            el.placeholder = el.getAttribute('data-en-placeholder') || el.placeholder;
-          } else {
-            el.textContent = el.getAttribute('data-en') || el.textContent;
-          }
-        });
-      }
-      // تحديث زر الداكن مود حسب اللغة
-      if(body.classList.contains('dark')){
-        darkModeToggle.textContent = (lang === 'ar') ? 'الوضع النهاري' : 'Light Mode';
-      } else {
-        darkModeToggle.textContent = (lang === 'ar') ? 'الوضع الداكن' : 'Dark Mode';
-      }
-      localStorage.setItem('lang', lang);
-    }
-
-    // Load saved mode and language from localStorage
+    // Load saved mode from localStorage
     const savedMode = localStorage.getItem('darkMode');
     if (savedMode === 'true') {
       setDarkMode(true);
     } else {
       setDarkMode(false);
     }
-    updateLanguage(currentLang);
 
     darkModeToggle.addEventListener('click', () => {
       const isDark = body.classList.contains('dark');
       setDarkMode(!isDark);
     });
 
-    languageToggle.addEventListener('click', () => {
-      if(currentLang === 'en'){
-        updateLanguage('ar');
+    // Language toggle
+    const languageToggle = document.getElementById('language-toggle');
+    let currentLang = 'en'; // default English
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      if(lang === 'ar') {
+        document.documentElement.dir = 'rtl';
+        languageToggle.textContent = 'EN';
       } else {
-        updateLanguage('en');
+        document.documentElement.dir = 'ltr';
+        languageToggle.textContent = 'AR';
       }
+
+      // Change all elements with data-en and data-ar attributes
+      document.querySelectorAll('[data-en]').forEach(el => {
+        el.textContent = lang === 'ar' ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+      });
+
+      // Change placeholders in form inputs
+      if(lang === 'ar') {
+        document.querySelector('input[type="text"]').placeholder = 'الاسم';
+        document.querySelector('input[type="email"]').placeholder = 'البريد الإلكتروني';
+        document.querySelector('textarea').placeholder = 'رسالتك';
+        document.querySelector('button[type="submit"]').textContent = 'إرسال';
+      } else {
+        document.querySelector('input[type="text"]').placeholder = 'Name';
+        document.querySelector('input[type="email"]').placeholder = 'Email';
+        document.querySelector('textarea').placeholder = 'Your message';
+        document.querySelector('button[type="submit"]').textContent = 'Send';
+      }
+
+      // Change CV button aria-label
+      const cvBtn = document.querySelector('.btn-cv');
+      if(cvBtn) {
+        cvBtn.setAttribute('aria-label', lang === 'ar' ? 'تحميل السيرة الذاتية' : 'Download CV');
+      }
+    }
+
+    languageToggle.addEventListener('click', () => {
+      setLanguage(currentLang === 'en' ? 'ar' : 'en');
     });
+
+    // Initialize language on load
+    setLanguage(currentLang);
   </script>
 </body>
 </html>
