@@ -4,6 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mohamed Adel - Home</title>
+
+  <!-- Font Awesome CDN للأيقونات -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
   <style>
     /* Reset */
     * {
@@ -14,7 +21,7 @@
       background-color: #f0f0f0;
       color: #222;
       line-height: 1.6;
-      scroll-behavior: smooth; /* smooth scroll */
+      scroll-behavior: smooth;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
     header {
@@ -88,6 +95,48 @@
       max-width: 500px;
       font-size: 18px;
     }
+    #home .intro-text h2 {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 10px;
+      color: #000;
+      transition: color 0.3s ease;
+      flex-wrap: wrap;
+    }
+    /* زر تحميل السيرة الذاتية */
+    .btn-cv {
+      display: inline-block;
+      padding: 6px 14px;
+      background-color: #007bff;
+      color: white;
+      font-weight: 600;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+      white-space: nowrap;
+    }
+    .btn-cv:hover {
+      background-color: #0056b3;
+    }
+
+    /* أيقونات التواصل الاجتماعي */
+    .social-icons {
+      margin-top: 20px;
+      display: flex;
+      gap: 20px;
+    }
+    .social-icons a {
+      color: #222;
+      font-size: 28px;
+      transition: color 0.3s ease;
+      text-decoration: none;
+    }
+    .social-icons a:hover {
+      color: #007bff;
+    }
+
     h2 {
       margin-bottom: 15px;
       color: #000;
@@ -159,6 +208,12 @@
       #home img {
         width: 150px;
       }
+      #home .intro-text h2 {
+        justify-content: center;
+      }
+      .social-icons {
+        justify-content: center;
+      }
     }
 
     /* Dark mode styles */
@@ -226,8 +281,24 @@
   <section id="home">
     <img src="assets/images/Mohamed%20Adel.png" alt="Mohamed Adel's photo" />
     <div class="intro-text">
-      <h2>Hello, I'm Mohamed Adel</h2>
+      <h2>
+        Hello, I'm Mohamed Adel
+        <a href="assets/files/_Resume%20Mohamed%20Adel%20EL%20Refaey.pdf" download class="btn-cv" aria-label="Download CV">Download CV</a>
+      </h2>
       <p>Electronics and Communications Engineer and student at Delta University. I work on tech and entrepreneurial projects and contribute to innovative solutions.</p>
+
+      <!-- أيقونات التواصل الاجتماعي -->
+      <div class="social-icons" aria-label="Social media links">
+        <a href="https://www.linkedin.com/in/mohamed-adel-el-refaey/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://www.facebook.com/mohamedadel.elrefaey" target="_blank" rel="noopener" aria-label="Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com/m_r1xx/" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
     </div>
   </section>
 
