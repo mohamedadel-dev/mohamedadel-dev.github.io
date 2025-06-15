@@ -137,350 +137,147 @@
 
     /* أيقونات التواصل الاجتماعي */
     .social-icons {
-      margin-top: 20px;
+      margin-top: 30px;
       display: flex;
       gap: 20px;
     }
     .social-icons a {
       color: #222;
-      font-size: 28px;
+      font-size: 24px;
       transition: color 0.3s ease;
-      text-decoration: none;
     }
     .social-icons a:hover {
       color: #007bff;
     }
 
-    h2 {
-      margin-bottom: 15px;
-      color: #000;
-      transition: color 0.3s ease;
-    }
-    .section-content p,
-    .section-content ul {
-      margin-bottom: 15px;
-    }
-    ul {
-      list-style-type: disc;
-      padding-left: 20px;
-    }
-    /* Contact form */
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      max-width: 400px;
-    }
-    input, textarea {
-      padding: 10px;
-      font-size: 16px;
-      border: 1.5px solid #ccc;
-      border-radius: 5px;
-      resize: vertical;
-      transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-      background-color: white;
-      color: #222;
-    }
-    input:focus, textarea:focus {
-      border-color: #007bff;
-      outline: none;
-      background-color: #fff;
-      color: #222;
-    }
-    button {
-      background-color: #007bff;
-      color: white;
-      font-weight: bold;
-      border: none;
-      padding: 12px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    button:hover {
-      background-color: #0056b3;
-    }
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 20px 10px;
-      background: white;
-      color: #555;
-      border-top: 1px solid #ddd;
-      margin-top: 50px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-    /* Responsive */
-    @media (max-width: 600px) {
-      #home {
-        flex-direction: column;
-      }
-      nav a {
-        margin-right: 10px;
-        font-size: 14px;
-      }
-      #home img {
-        width: 150px;
-      }
-      #home .intro-text h2 {
-        justify-content: center;
-      }
-      .social-icons {
-        justify-content: center;
-      }
-    }
-
-    /* Dark mode styles */
-    body.dark {
+    /* الوضع الليلي */
+    body.dark-mode {
       background-color: #121212;
       color: #e0e0e0;
     }
-    body.dark header {
-      background-color: #1e1e1e;
+    body.dark-mode header {
+      background-color: #1f1f1f;
       box-shadow: 0 2px 5px rgba(255,255,255,0.1);
     }
-    body.dark header .logo,
-    body.dark nav a {
+    body.dark-mode header .logo,
+    body.dark-mode nav a {
       color: #e0e0e0;
     }
-    body.dark nav a:hover,
-    body.dark nav a.active {
-      color: #66aaff;
+    body.dark-mode nav a:hover,
+    body.dark-mode nav a.active {
+      color: #66b0ff;
     }
-    body.dark #home img {
-      border-color: #e0e0e0;
-    }
-    body.dark h2 {
-      color: #e0e0e0;
-    }
-    body.dark input, 
-    body.dark textarea {
-      background-color: #333;
-      color: #e0e0e0;
-      border-color: #555;
-    }
-    body.dark input:focus, 
-    body.dark textarea:focus {
-      border-color: #66aaff;
-      background-color: #444;
-      color: #e0e0e0;
-    }
-    body.dark button {
-      background-color: #66aaff;
+    body.dark-mode #dark-mode-toggle {
+      background-color: #66b0ff;
       color: #121212;
     }
-    body.dark button:hover {
-      background-color: #5599ee;
+    body.dark-mode #dark-mode-toggle:hover {
+      background-color: #1a5fcc;
+      color: #fff;
     }
-    body.dark footer {
-      background-color: #1e1e1e;
-      color: #aaa;
-      border-top: 1px solid #333;
+    body.dark-mode #lang-toggle {
+      background-color: #3ca73c;
     }
+    body.dark-mode #lang-toggle:hover {
+      background-color: #276927;
+    }
+    body.dark-mode #home img {
+      border-color: #e0e0e0;
+    }
+
   </style>
 </head>
 <body>
   <header>
-    <div class="logo" id="logo">Mohamed Adel</div>
+    <div class="logo">Mohamed Adel</div>
     <nav>
-      <a href="#home" class="nav-link active" id="nav-home">Home</a>
-      <a href="#about" class="nav-link" id="nav-about">About</a>
-      <a href="#services" class="nav-link" id="nav-services">Services</a>
-      <a href="#projects" class="nav-link" id="nav-projects">Projects</a>
-      <a href="#contact" class="nav-link" id="nav-contact">Contact</a>
-      <button id="dark-mode-toggle" aria-label="Toggle dark mode">Dark Mode</button>
-      <button id="lang-toggle" aria-label="Toggle language">عربي</button>
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <button id="dark-mode-toggle">Dark Mode</button>
+      <button id="lang-toggle">العربية</button>
     </nav>
   </header>
 
   <section id="home">
-    <img src="assets/images/Mohamed%20Adel.png" alt="Mohamed Adel's photo" />
+    <img src="https://i.imgur.com/your-photo.jpg" alt="Mohamed Adel" />
     <div class="intro-text">
-      <h2 id="home-title">
-        Hello, I'm Mohamed Adel
-        <a href="assets/files/_Resume%20Mohamed%20Adel%20EL%20Refaey.pdf" download class="btn-cv" id="btn-cv" aria-label="Download CV">Download CV</a>
-      </h2>
-      <p id="home-description">Electronics and Communications Engineer and student at Delta University. I work on tech and entrepreneurial projects and contribute to innovative solutions.</p>
-
-      <!-- أيقونات التواصل الاجتماعي -->
-      <div class="social-icons" aria-label="Social media links">
-        <a href="https://www.linkedin.com/in/mohamed-adel-el-refaey/" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="https://www.facebook.com/mohamedadel.elrefaey" target="_blank" rel="noopener" aria-label="Facebook">
-          <i class="fab fa-facebook"></i>
-        </a>
-        <a href="https://www.instagram.com/m_r1xx/" target="_blank" rel="noopener" aria-label="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
+      <h2>Hi, I'm Mohamed Adel <i class="fa-solid fa-code"></i></h2>
+      <p>Software engineer | Web developer | Tech enthusiast</p>
+      <a href="MohamedAdel_CV.pdf" download class="btn-cv">Download CV</a>
+      
+      <div class="social-icons">
+        <a href="https://linkedin.com/in/mohamedadel" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/mohamedadel-dev" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://twitter.com/mohamedadel" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="mailto:ma7033730@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
       </div>
     </div>
   </section>
 
+  <!-- أقسام إضافية يمكن إضافتها لاحقًا -->
   <section id="about">
-    <h2 id="about-title">About Me</h2>
-    <div class="section-content">
-      <p id="about-text">I am passionate about engineering and modern technologies. I believe in developing my skills and innovating to serve the community. I participate in educational and entrepreneurial initiatives aimed at building a distinguished generation.</p>
-    </div>
-  </section>
-
-  <section id="services">
-    <h2 id="services-title">Services</h2>
-    <div class="section-content">
-      <ul id="services-list">
-        <li>Websites and web applications development.</li>
-        <li>Designing innovative technical solutions.</li>
-        <li>Training and workshops in technology and entrepreneurship.</li>
-      </ul>
-    </div>
+    <h2>About Me</h2>
+    <p>This is the about section...</p>
   </section>
 
   <section id="projects">
-    <h2 id="projects-title">Projects</h2>
-    <div class="section-content">
-      <ul id="projects-list">
-        <li>EcoNet Project: An app for smart environmental solutions.</li>
-        <li>Developing a tuk-tuk transport system for remote areas.</li>
-        <li>Interactive educational bot for students.</li>
-      </ul>
-    </div>
+    <h2>Projects</h2>
+    <p>This is the projects section...</p>
   </section>
 
   <section id="contact">
-    <h2 id="contact-title">Contact Me</h2>
-    <form>
-      <input type="text" placeholder="Name" id="input-name" required />
-      <input type="email" placeholder="Email" id="input-email" required />
-      <textarea rows="5" placeholder="Your message" id="input-message" required></textarea>
-      <button type="submit" id="btn-send">Send</button>
-    </form>
+    <h2>Contact</h2>
+    <p>This is the contact section...</p>
   </section>
 
-  <footer>
-    &copy; 2025 Mohamed Adel EL Refaey - All rights reserved
-  </footer>
-
   <script>
-    // Text content for English and Arabic
-    const textContent = {
-      en: {
-        lang: 'عربي',
-        logo: 'Mohamed Adel',
-        nav: {
-          home: 'Home',
-          about: 'About',
-          services: 'Services',
-          projects: 'Projects',
-          contact: 'Contact'
-        },
-        homeTitle: "Hello, I'm Mohamed Adel",
-        btnCV: 'Download CV',
-        homeDescription: 'Electronics and Communications Engineer and student at Delta University. I work on tech and entrepreneurial projects and contribute to innovative solutions.',
-        aboutTitle: 'About Me',
-        aboutText: 'I am passionate about engineering and modern technologies. I believe in developing my skills and innovating to serve the community. I participate in educational and entrepreneurial initiatives aimed at building a distinguished generation.',
-        servicesTitle: 'Services',
-        servicesList: [
-          'Websites and web applications development.',
-          'Designing innovative technical solutions.',
-          'Training and workshops in technology and entrepreneurship.'
-        ],
-        projectsTitle: 'Projects',
-        projectsList: [
-          'EcoNet Project: An app for smart environmental solutions.',
-          'Developing a tuk-tuk transport system for remote areas.',
-          'Interactive educational bot for students.'
-        ],
-        contactTitle: 'Contact Me',
-        inputName: 'Name',
-        inputEmail: 'Email',
-        inputMessage: 'Your message',
-        btnSend: 'Send',
-        darkModeOn: 'Light Mode',
-        darkModeOff: 'Dark Mode'
-      },
-      ar: {
-        lang: 'English',
-        logo: 'محمد عادل',
-        nav: {
-          home: 'الرئيسية',
-          about: 'من أنا',
-          services: 'الخدمات',
-          projects: 'المشاريع',
-          contact: 'تواصل معي'
-        },
-        homeTitle: 'مرحبًا، أنا محمد عادل',
-        btnCV: 'تحميل السيرة الذاتية',
-        homeDescription: 'مهندس إلكترونيات واتصالات وطالب بجامعة الدلتا. أعمل على مشاريع تقنية وريادية وأساهم في حلول مبتكرة.',
-        aboutTitle: 'من أنا',
-        aboutText: 'أنا شغوف بالهندسة والتقنيات الحديثة. أؤمن بتطوير مهاراتي والابتكار لخدمة المجتمع. أشارك في مبادرات تعليمية وريادية تهدف لبناء جيل متميز.',
-        servicesTitle: 'الخدمات',
-        servicesList: [
-          'تطوير المواقع وتطبيقات الويب.',
-          'تصميم حلول تقنية مبتكرة.',
-          'تدريب وورش عمل في التكنولوجيا وريادة الأعمال.'
-        ],
-        projectsTitle: 'المشاريع',
-        projectsList: [
-          'مشروع EcoNet: تطبيق للحلول البيئية الذكية.',
-          'تطوير نظام نقل بالتوك توك للمناطق النائية.',
-          'بوت تعليمي تفاعلي للطلاب.'
-        ],
-        contactTitle: 'تواصل معي',
-        inputName: 'الاسم',
-        inputEmail: 'البريد الإلكتروني',
-        inputMessage: 'رسالتك',
-        btnSend: 'إرسال',
-        darkModeOn: 'وضع النهار',
-        darkModeOff: 'الوضع الداكن'
-      }
-    };
-
-    // Elements to update
-    const langToggleBtn = document.getElementById('lang-toggle');
-    const logo = document.getElementById('logo');
-    const navHome = document.getElementById('nav-home');
-    const navAbout = document.getElementById('nav-about');
-    const navServices = document.getElementById('nav-services');
-    const navProjects = document.getElementById('nav-projects');
-    const navContact = document.getElementById('nav-contact');
-    const homeTitle = document.getElementById('home-title');
-    const btnCV = document.querySelector('.btn-cv');
-    const homeDescription = document.getElementById('home-description');
-    const aboutTitle = document.getElementById('about-title');
-    const aboutText = document.getElementById('about-text');
-    const servicesTitle = document.getElementById('services-title');
-    const servicesList = document.getElementById('services-list');
-    const projectsTitle = document.getElementById('projects-title');
-    const projectsList = document.getElementById('projects-list');
-    const contactTitle = document.getElementById('contact-title');
-    const inputName = document.getElementById('input-name');
-    const inputEmail = document.getElementById('input-email');
-    const inputMessage = document.getElementById('input-message');
-    const btnSend = document.getElementById('btn-send');
+    // زر الوضع الداكن
     const darkModeToggle = document.getElementById('dark-mode-toggle');
+    darkModeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      if(document.body.classList.contains('dark-mode')) {
+        darkModeToggle.textContent = 'Light Mode';
+      } else {
+        darkModeToggle.textContent = 'Dark Mode';
+      }
+    });
 
-    // Current language state
-    let currentLang = 'en';
+    // زر تغيير اللغة (إنجليزي - عربي)
+    const langToggle = document.getElementById('lang-toggle');
+    langToggle.addEventListener('click', () => {
+      if(document.documentElement.lang === 'en') {
+        document.documentElement.lang = 'ar';
+        document.documentElement.dir = 'rtl';
+        langToggle.textContent = 'English';
 
-    function updateContent(lang) {
-      const content = textContent[lang];
+        // تغيير نصوص الموقع للغة العربية (مثال)
+        document.querySelector('.logo').textContent = 'محمد عادل';
+        document.querySelector('nav a[href="#home"]').textContent = 'الرئيسية';
+        document.querySelector('nav a[href="#about"]').textContent = 'من أنا';
+        document.querySelector('nav a[href="#projects"]').textContent = 'مشاريعي';
+        document.querySelector('nav a[href="#contact"]').textContent = 'تواصل';
+        document.querySelector('#home h2').innerHTML = 'مرحباً، أنا محمد عادل <i class="fa-solid fa-code"></i>';
+        document.querySelector('#home p').textContent = 'مهندس برمجيات | مطور ويب | مهتم بالتقنية';
+        document.querySelector('.btn-cv').textContent = 'تحميل السيرة الذاتية';
 
-      // Update lang attribute and dir
-      document.documentElement.lang = lang === 'en' ? 'en' : 'ar';
-      document.documentElement.dir = lang === 'en' ? 'ltr' : 'rtl';
+      } else {
+        document.documentElement.lang = 'en';
+        document.documentElement.dir = 'ltr';
+        langToggle.textContent = 'العربية';
 
-      // Update text content
-      logo.textContent = content.logo;
-      navHome.textContent = content.nav.home;
-      navAbout.textContent = content.nav.about;
-      navServices.textContent = content.nav.services;
-      navProjects.textContent = content.nav.projects;
-      navContact.textContent = content.nav.contact;
-
-      // Home section
-      homeTitle.firstChild.textContent = content.homeTitle + ' '; // keep the space for button inline
-      btnCV.textContent = content.btnCV;
-      homeDescription.textContent = content.homeDescription;
-
-      // About
-      aboutTitle
+        // إعادة النصوص للإنجليزية
+        document.querySelector('.logo').textContent = 'Mohamed Adel';
+        document.querySelector('nav a[href="#home"]').textContent = 'Home';
+        document.querySelector('nav a[href="#about"]').textContent = 'About';
+        document.querySelector('nav a[href="#projects"]').textContent = 'Projects';
+        document.querySelector('nav a[href="#contact"]').textContent = 'Contact';
+        document.querySelector('#home h2').innerHTML = `Hi, I'm Mohamed Adel <i class="fa-solid fa-code"></i>`;
+        document.querySelector('#home p').textContent = 'Software engineer | Web developer | Tech enthusiast';
+        document.querySelector('.btn-cv').textContent = 'Download CV';
+      }
+    });
+  </script>
+</body>
+</html>
