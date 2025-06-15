@@ -57,7 +57,7 @@
     nav a.active {
       color: #007bff;
     }
-    #dark-mode-toggle {
+    #dark-mode-toggle, #language-toggle {
       background: #007bff;
       border: none;
       color: white;
@@ -68,21 +68,8 @@
       transition: background-color 0.3s ease;
       margin-left: 10px;
     }
-    #dark-mode-toggle:hover {
+    #dark-mode-toggle:hover, #language-toggle:hover {
       background-color: #0056b3;
-    }
-    #lang-toggle {
-      background: #28a745;
-      border: none;
-      color: white;
-      padding: 8px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
-    }
-    #lang-toggle:hover {
-      background-color: #1e7e34;
     }
     section {
       padding: 100px 30px 60px;
@@ -137,52 +124,145 @@
 
     /* أيقونات التواصل الاجتماعي */
     .social-icons {
-      margin-top: 30px;
+      margin-top: 20px;
       display: flex;
       gap: 20px;
     }
     .social-icons a {
       color: #222;
-      font-size: 24px;
+      font-size: 28px;
       transition: color 0.3s ease;
+      text-decoration: none;
     }
     .social-icons a:hover {
       color: #007bff;
     }
 
-    /* الوضع الليلي */
-    body.dark-mode {
+    h2 {
+      margin-bottom: 15px;
+      color: #000;
+      transition: color 0.3s ease;
+    }
+    .section-content p,
+    .section-content ul {
+      margin-bottom: 15px;
+    }
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+    /* Contact form */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 400px;
+    }
+    input, textarea {
+      padding: 10px;
+      font-size: 16px;
+      border: 1.5px solid #ccc;
+      border-radius: 5px;
+      resize: vertical;
+      transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+      background-color: white;
+      color: #222;
+    }
+    input:focus, textarea:focus {
+      border-color: #007bff;
+      outline: none;
+      background-color: #fff;
+      color: #222;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px 10px;
+      background: white;
+      color: #555;
+      border-top: 1px solid #ddd;
+      margin-top: 50px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      #home {
+        flex-direction: column;
+      }
+      nav a {
+        margin-right: 10px;
+        font-size: 14px;
+      }
+      #home img {
+        width: 150px;
+      }
+      #home .intro-text h2 {
+        justify-content: center;
+      }
+      .social-icons {
+        justify-content: center;
+      }
+    }
+
+    /* Dark mode styles */
+    body.dark {
       background-color: #121212;
       color: #e0e0e0;
     }
-    body.dark-mode header {
-      background-color: #1f1f1f;
+    body.dark header {
+      background-color: #1e1e1e;
       box-shadow: 0 2px 5px rgba(255,255,255,0.1);
     }
-    body.dark-mode header .logo,
-    body.dark-mode nav a {
+    body.dark header .logo,
+    body.dark nav a {
       color: #e0e0e0;
     }
-    body.dark-mode nav a:hover,
-    body.dark-mode nav a.active {
-      color: #66b0ff;
+    body.dark nav a:hover,
+    body.dark nav a.active {
+      color: #66aaff;
     }
-    body.dark-mode #dark-mode-toggle {
-      background-color: #66b0ff;
+    body.dark #home img {
+      border-color: #e0e0e0;
+    }
+    body.dark h2 {
+      color: #e0e0e0;
+    }
+    body.dark input, 
+    body.dark textarea {
+      background-color: #333;
+      color: #e0e0e0;
+      border-color: #555;
+    }
+    body.dark input:focus, 
+    body.dark textarea:focus {
+      border-color: #66aaff;
+      background-color: #444;
+      color: #e0e0e0;
+    }
+    body.dark button {
+      background-color: #66aaff;
       color: #121212;
     }
-    body.dark-mode #dark-mode-toggle:hover {
-      background-color: #1a5fcc;
-      color: #fff;
+    body.dark button:hover {
+      background-color: #5599ee;
     }
-    body.dark-mode #lang-toggle {
-      background-color: #3ca73c;
-    }
-    body.dark-mode #lang-toggle:hover {
-      background-color: #276927;
-    }
-    body.dark-mode #home img {
-      border-color: #e0e0e0;
+    body.dark footer {
+      background-color: #1e1e1e;
+      color: #aaa;
+      border-top: 1px solid #333;
     }
   </style>
 </head>
@@ -190,106 +270,191 @@
   <header>
     <div class="logo">Mohamed Adel</div>
     <nav>
-      <a href="#home" class="active">Home</a>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-      <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">Dark Mode</button>
-      <button id="lang-toggle" aria-label="Toggle Language">العربية</button>
+      <a href="#home" class="nav-link active" data-en="Home" data-ar="الرئيسية">Home</a>
+      <a href="#about" class="nav-link" data-en="About" data-ar="من أنا">About</a>
+      <a href="#services" class="nav-link" data-en="Services" data-ar="الخدمات">Services</a>
+      <a href="#projects" class="nav-link" data-en="Projects" data-ar="المشاريع">Projects</a>
+      <a href="#contact" class="nav-link" data-en="Contact" data-ar="اتصل بي">Contact</a>
+      <button id="language-toggle" aria-label="Toggle language">عربي</button>
+      <button id="dark-mode-toggle" aria-label="Toggle dark mode">Dark Mode</button>
     </nav>
   </header>
 
   <section id="home">
-    <img src="https://i.imgur.com/your-photo.jpg" alt="Mohamed Adel" />
+    <img src="assets/images/Mohamed%20Adel.png" alt="Mohamed Adel's photo" />
     <div class="intro-text">
-      <h2>Hi, I'm Mohamed Adel <i class="fa-solid fa-code"></i></h2>
-      <p>Software engineer | Web developer | Tech enthusiast</p>
-      <a href="MohamedAdel_CV.pdf" download class="btn-cv">Download CV</a>
-      
-      <div class="social-icons">
-        <a href="https://linkedin.com/in/mohamedadel" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/mohamedadel-dev" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://twitter.com/mohamedadel" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="mailto:ma7033730@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <h2 data-en="Hello, I'm Mohamed Adel" data-ar="مرحباً، أنا محمد عادل">
+        Hello, I'm Mohamed Adel
+        <a href="assets/files/_Resume%20Mohamed%20Adel%20EL%20Refaey.pdf" download class="btn-cv" aria-label="Download CV" data-en="Download CV" data-ar="تحميل السيرة الذاتية">Download CV</a>
+      </h2>
+      <p data-en="Electronics and Communications Engineer and student at Delta University. I work on tech and entrepreneurial projects and contribute to innovative solutions."
+         data-ar="مهندس إلكترونيات واتصالات وطالب في جامعة الدلتا. أعمل على مشاريع تقنية وريادية وأساهم في حلول مبتكرة.">
+        Electronics and Communications Engineer and student at Delta University. I work on tech and entrepreneurial projects and contribute to innovative solutions.
+      </p>
+
+      <!-- أيقونات التواصل الاجتماعي -->
+      <div class="social-icons" aria-label="Social media links">
+        <a href="https://www.linkedin.com/in/mohamed-adel-el-refaey/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://www.facebook.com/mohamedadel.elrefaey" target="_blank" rel="noopener" aria-label="Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com/m_r1xx/" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
       </div>
     </div>
   </section>
 
   <section id="about">
-    <h2>About Me</h2>
-    <p>This is the about section...</p>
+    <h2 data-en="About Me" data-ar="من أنا">About Me</h2>
+    <div class="section-content">
+      <p data-en="I am passionate about engineering and modern technologies. I believe in developing my skills and innovating to serve the community. I participate in educational and entrepreneurial initiatives aimed at building a distinguished generation."
+         data-ar="أنا شغوف بالهندسة والتقنيات الحديثة. أؤمن بتطوير مهاراتي والابتكار لخدمة المجتمع. أشارك في مبادرات تعليمية وريادية تهدف لبناء جيل متميز.">
+        I am passionate about engineering and modern technologies. I believe in developing my skills and innovating to serve the community. I participate in educational and entrepreneurial initiatives aimed at building a distinguished generation.
+      </p>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2 data-en="Services" data-ar="الخدمات">Services</h2>
+    <div class="section-content">
+      <ul>
+        <li data-en="Websites and web applications development." data-ar="تطوير مواقع وتطبيقات الويب.">Websites and web applications development.</li>
+        <li data-en="Designing innovative technical solutions." data-ar="تصميم حلول تقنية مبتكرة.">Designing innovative technical solutions.</li>
+        <li data-en="Training and workshops in technology and entrepreneurship." data-ar="تدريب وورش عمل في التكنولوجيا وريادة الأعمال.">Training and workshops in technology and entrepreneurship.</li>
+      </ul>
+    </div>
   </section>
 
   <section id="projects">
-    <h2>Projects</h2>
-    <p>This is the projects section...</p>
+    <h2 data-en="Projects" data-ar="المشاريع">Projects</h2>
+    <div class="section-content">
+      <ul>
+        <li data-en="EcoNet Project: An app for smart environmental solutions." data-ar="مشروع EcoNet: تطبيق للحلول البيئية الذكية.">EcoNet Project: An app for smart environmental solutions.</li>
+        <li data-en="Developing a tuk-tuk transport system for remote areas." data-ar="تطوير نظام نقل التوك توك للمناطق النائية.">Developing a tuk-tuk transport system for remote areas.</li>
+        <li data-en="Interactive educational bot for students." data-ar="بوت تعليمي تفاعلي للطلاب.">Interactive educational bot for students.</li>
+      </ul>
+    </div>
   </section>
 
   <section id="contact">
-    <h2>Contact</h2>
-    <p>This is the contact section...</p>
+    <h2 data-en="Contact Me" data-ar="اتصل بي">Contact Me</h2>
+    <form>
+      <input type="text" placeholder="Name" required data-en-placeholder="Name" data-ar-placeholder="الاسم" />
+      <input type="email" placeholder="Email" required data-en-placeholder="Email" data-ar-placeholder="البريد الإلكتروني" />
+      <textarea rows="5" placeholder="Your message" required data-en-placeholder="Your message" data-ar-placeholder="رسالتك"></textarea>
+      <button type="submit" data-en="Send" data-ar="إرسال">Send</button>
+    </form>
   </section>
 
+  <footer>
+    &copy; 2025 Mohamed Adel EL Refaey - All rights reserved
+  </footer>
+
   <script>
-    // زر الوضع الداكن
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
-    darkModeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      if(document.body.classList.contains('dark-mode')) {
-        darkModeToggle.textContent = 'Light Mode';
-      } else {
-        darkModeToggle.textContent = 'Dark Mode';
-      }
+    // Update nav link active state on scroll
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav a.nav-link');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 110;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
     });
 
-    // زر تغيير اللغة (إنجليزي - عربي)
-    const langToggle = document.getElementById('lang-toggle');
-    langToggle.addEventListener('click', () => {
-      if(document.documentElement.lang === 'en') {
-        document.documentElement.lang = 'ar';
-        document.documentElement.dir = 'rtl';
-        langToggle.textContent = 'English';
+    // Dark mode toggle with localStorage
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const body = document.body;
 
-        // تغيير نصوص الموقع للغة العربية (مع تحقق وجود العناصر)
-        const logo = document.querySelector('.logo');
-        if(logo) logo.textContent = 'محمد عادل';
-        const homeLink = document.querySelector('nav a[href="#home"]');
-        if(homeLink) homeLink.textContent = 'الرئيسية';
-        const aboutLink = document.querySelector('nav a[href="#about"]');
-        if(aboutLink) aboutLink.textContent = 'من أنا';
-        const projectsLink = document.querySelector('nav a[href="#projects"]');
-        if(projectsLink) projectsLink.textContent = 'مشاريعي';
-        const contactLink = document.querySelector('nav a[href="#contact"]');
-        if(contactLink) contactLink.textContent = 'تواصل';
-        const homeTitle = document.querySelector('#home h2');
-        if(homeTitle) homeTitle.innerHTML = 'مرحباً، أنا محمد عادل <i class="fa-solid fa-code"></i>';
-        const homePara = document.querySelector('#home p');
-        if(homePara) homePara.textContent = 'مهندس برمجيات | مطور ويب | مهتم بالتقنية';
-        const btnCV = document.querySelector('.btn-cv');
-        if(btnCV) btnCV.textContent = 'تحميل السيرة الذاتية';
-
+    function setDarkMode(enabled) {
+      if (enabled) {
+        body.classList.add('dark');
+        darkModeToggle.textContent = (currentLang === 'ar') ? 'الوضع النهاري' : 'Light Mode';
       } else {
-        document.documentElement.lang = 'en';
-        document.documentElement.dir = 'ltr';
-        langToggle.textContent = 'العربية';
+        body.classList.remove('dark');
+        darkModeToggle.textContent = (currentLang === 'ar') ? 'الوضع الداكن' : 'Dark Mode';
+      }
+      localStorage.setItem('darkMode', enabled);
+    }
 
-        // إعادة النصوص للإنجليزية مع تحقق وجود العناصر
-        const logo = document.querySelector('.logo');
-        if(logo) logo.textContent = 'Mohamed Adel';
-        const homeLink = document.querySelector('nav a[href="#home"]');
-        if(homeLink) homeLink.textContent = 'Home';
-        const aboutLink = document.querySelector('nav a[href="#about"]');
-        if(aboutLink) aboutLink.textContent = 'About';
-        const projectsLink = document.querySelector('nav a[href="#projects"]');
-        if(projectsLink) projectsLink.textContent = 'Projects';
-        const contactLink = document.querySelector('nav a[href="#contact"]');
-        if(contactLink) contactLink.textContent = 'Contact';
-        const homeTitle = document.querySelector('#home h2');
-        if(homeTitle) homeTitle.innerHTML = `Hi, I'm Mohamed Adel <i class="fa-solid fa-code"></i>`;
-        const homePara = document.querySelector('#home p');
-        if(homePara) homePara.textContent = 'Software engineer | Web developer | Tech enthusiast';
-        const btnCV = document.querySelector('.btn-cv');
-        if(btnCV) btnCV.textContent = 'Download CV';
+    // Language toggle
+    const languageToggle = document.getElementById('language-toggle');
+    let currentLang = localStorage.getItem('lang') || 'en';
+
+    function updateLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      if(lang === 'ar'){
+        document.documentElement.dir = 'rtl';
+        languageToggle.textContent = 'EN';
+        // تعديل النصوص للعربية
+        document.querySelectorAll('[data-en]').forEach(el => {
+          if(el.placeholder !== undefined) {
+            el.placeholder = el.getAttribute('data-ar-placeholder') || el.placeholder;
+          }
+          if(el.tagName.toLowerCase() === 'input' || el.tagName.toLowerCase() === 'textarea'){
+            el.placeholder = el.getAttribute('data-ar-placeholder') || el.placeholder;
+          } else {
+            el.textContent = el.getAttribute('data-ar') || el.textContent;
+          }
+        });
+      } else {
+        document.documentElement.dir = 'ltr';
+        languageToggle.textContent = 'عربي';
+        // تعديل النصوص للإنجليزية
+        document.querySelectorAll('[data-en]').forEach(el => {
+          if(el.placeholder !== undefined) {
+            el.placeholder = el.getAttribute('data-en-placeholder') || el.placeholder;
+          }
+          if(el.tagName.toLowerCase() === 'input' || el.tagName.toLowerCase() === 'textarea'){
+            el.placeholder = el.getAttribute('data-en-placeholder') || el.placeholder;
+          } else {
+            el.textContent = el.getAttribute('data-en') || el.textContent;
+          }
+        });
+      }
+      // تحديث زر الداكن مود حسب اللغة
+      if(body.classList.contains('dark')){
+        darkModeToggle.textContent = (lang === 'ar') ? 'الوضع النهاري' : 'Light Mode';
+      } else {
+        darkModeToggle.textContent = (lang === 'ar') ? 'الوضع الداكن' : 'Dark Mode';
+      }
+      localStorage.setItem('lang', lang);
+    }
+
+    // Load saved mode and language from localStorage
+    const savedMode = localStorage.getItem('darkMode');
+    if (savedMode === 'true') {
+      setDarkMode(true);
+    } else {
+      setDarkMode(false);
+    }
+    updateLanguage(currentLang);
+
+    darkModeToggle.addEventListener('click', () => {
+      const isDark = body.classList.contains('dark');
+      setDarkMode(!isDark);
+    });
+
+    languageToggle.addEventListener('click', () => {
+      if(currentLang === 'en'){
+        updateLanguage('ar');
+      } else {
+        updateLanguage('en');
       }
     });
   </script>
