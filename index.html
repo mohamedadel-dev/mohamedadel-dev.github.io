@@ -184,7 +184,6 @@
     body.dark-mode #home img {
       border-color: #e0e0e0;
     }
-
   </style>
 </head>
 <body>
@@ -195,8 +194,8 @@
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
-      <button id="dark-mode-toggle">Dark Mode</button>
-      <button id="lang-toggle">العربية</button>
+      <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">Dark Mode</button>
+      <button id="lang-toggle" aria-label="Toggle Language">العربية</button>
     </nav>
   </header>
 
@@ -216,7 +215,6 @@
     </div>
   </section>
 
-  <!-- أقسام إضافية يمكن إضافتها لاحقًا -->
   <section id="about">
     <h2>About Me</h2>
     <p>This is the about section...</p>
@@ -252,30 +250,46 @@
         document.documentElement.dir = 'rtl';
         langToggle.textContent = 'English';
 
-        // تغيير نصوص الموقع للغة العربية (مثال)
-        document.querySelector('.logo').textContent = 'محمد عادل';
-        document.querySelector('nav a[href="#home"]').textContent = 'الرئيسية';
-        document.querySelector('nav a[href="#about"]').textContent = 'من أنا';
-        document.querySelector('nav a[href="#projects"]').textContent = 'مشاريعي';
-        document.querySelector('nav a[href="#contact"]').textContent = 'تواصل';
-        document.querySelector('#home h2').innerHTML = 'مرحباً، أنا محمد عادل <i class="fa-solid fa-code"></i>';
-        document.querySelector('#home p').textContent = 'مهندس برمجيات | مطور ويب | مهتم بالتقنية';
-        document.querySelector('.btn-cv').textContent = 'تحميل السيرة الذاتية';
+        // تغيير نصوص الموقع للغة العربية (مع تحقق وجود العناصر)
+        const logo = document.querySelector('.logo');
+        if(logo) logo.textContent = 'محمد عادل';
+        const homeLink = document.querySelector('nav a[href="#home"]');
+        if(homeLink) homeLink.textContent = 'الرئيسية';
+        const aboutLink = document.querySelector('nav a[href="#about"]');
+        if(aboutLink) aboutLink.textContent = 'من أنا';
+        const projectsLink = document.querySelector('nav a[href="#projects"]');
+        if(projectsLink) projectsLink.textContent = 'مشاريعي';
+        const contactLink = document.querySelector('nav a[href="#contact"]');
+        if(contactLink) contactLink.textContent = 'تواصل';
+        const homeTitle = document.querySelector('#home h2');
+        if(homeTitle) homeTitle.innerHTML = 'مرحباً، أنا محمد عادل <i class="fa-solid fa-code"></i>';
+        const homePara = document.querySelector('#home p');
+        if(homePara) homePara.textContent = 'مهندس برمجيات | مطور ويب | مهتم بالتقنية';
+        const btnCV = document.querySelector('.btn-cv');
+        if(btnCV) btnCV.textContent = 'تحميل السيرة الذاتية';
 
       } else {
         document.documentElement.lang = 'en';
         document.documentElement.dir = 'ltr';
         langToggle.textContent = 'العربية';
 
-        // إعادة النصوص للإنجليزية
-        document.querySelector('.logo').textContent = 'Mohamed Adel';
-        document.querySelector('nav a[href="#home"]').textContent = 'Home';
-        document.querySelector('nav a[href="#about"]').textContent = 'About';
-        document.querySelector('nav a[href="#projects"]').textContent = 'Projects';
-        document.querySelector('nav a[href="#contact"]').textContent = 'Contact';
-        document.querySelector('#home h2').innerHTML = `Hi, I'm Mohamed Adel <i class="fa-solid fa-code"></i>`;
-        document.querySelector('#home p').textContent = 'Software engineer | Web developer | Tech enthusiast';
-        document.querySelector('.btn-cv').textContent = 'Download CV';
+        // إعادة النصوص للإنجليزية مع تحقق وجود العناصر
+        const logo = document.querySelector('.logo');
+        if(logo) logo.textContent = 'Mohamed Adel';
+        const homeLink = document.querySelector('nav a[href="#home"]');
+        if(homeLink) homeLink.textContent = 'Home';
+        const aboutLink = document.querySelector('nav a[href="#about"]');
+        if(aboutLink) aboutLink.textContent = 'About';
+        const projectsLink = document.querySelector('nav a[href="#projects"]');
+        if(projectsLink) projectsLink.textContent = 'Projects';
+        const contactLink = document.querySelector('nav a[href="#contact"]');
+        if(contactLink) contactLink.textContent = 'Contact';
+        const homeTitle = document.querySelector('#home h2');
+        if(homeTitle) homeTitle.innerHTML = `Hi, I'm Mohamed Adel <i class="fa-solid fa-code"></i>`;
+        const homePara = document.querySelector('#home p');
+        if(homePara) homePara.textContent = 'Software engineer | Web developer | Tech enthusiast';
+        const btnCV = document.querySelector('.btn-cv');
+        if(btnCV) btnCV.textContent = 'Download CV';
       }
     });
   </script>
