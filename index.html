@@ -14,7 +14,7 @@
       background-color: #f0f0f0;
       color: #222;
       line-height: 1.6;
-      scroll-behavior: smooth;
+      scroll-behavior: smooth; /* smooth scroll */
     }
     header {
       background: white;
@@ -33,6 +33,7 @@
       font-size: 24px;
       color: #000;
       cursor: default;
+      user-select: none;
     }
     nav a {
       color: #000;
@@ -40,8 +41,10 @@
       margin-left: 20px;
       font-weight: 600;
       transition: color 0.3s ease;
+      cursor: pointer;
     }
-    nav a:hover {
+    nav a:hover,
+    nav a.active {
       color: #007bff;
     }
     section {
@@ -55,7 +58,7 @@
       justify-content: center;
       align-items: center;
       gap: 30px;
-      padding-top: 140px;
+      padding-top: 140px; /* compensate fixed header */
     }
     #home img {
       width: 220px;
@@ -71,8 +74,13 @@
       margin-bottom: 15px;
       color: #000;
     }
-    .section-content p {
+    .section-content p,
+    .section-content ul {
       margin-bottom: 15px;
+    }
+    ul {
+      list-style-type: disc;
+      padding-right: 20px;
     }
     /* Contact form */
     form {
@@ -134,11 +142,11 @@
   <header>
     <div class="logo">محمد عادل</div>
     <nav>
-      <a href="#home">الرئيسية</a>
-      <a href="#about">عني</a>
-      <a href="#services">الخدمات</a>
-      <a href="#projects">المشاريع</a>
-      <a href="#contact">تواصل معنا</a>
+      <a href="#home" class="nav-link active">الرئيسية</a>
+      <a href="#about" class="nav-link">عني</a>
+      <a href="#services" class="nav-link">الخدمات</a>
+      <a href="#projects" class="nav-link">المشاريع</a>
+      <a href="#contact" class="nav-link">تواصل معنا</a>
     </nav>
   </header>
 
@@ -192,5 +200,29 @@
   <footer>
     &copy; 2025 محمد عادل - جميع الحقوق محفوظة
   </footer>
+
+  <script>
+    // تحديث حالة الرابط في التنقل بناءً على القسم اللي شغال عليه
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 110;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
