@@ -1,111 +1,196 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Mohamed Adel El Refaey | Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f2f2f2;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-        header {
-            background: #002147;
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-        }
-        img.profile {
-            width: 150px;
-            border-radius: 50%;
-            margin-top: 20px;
-        }
-        section {
-            padding: 20px;
-            background: white;
-            margin: 20px auto;
-            max-width: 900px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h2 {
-            color: #002147;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        a {
-            color: #0047ab;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>محمد عادل - الصفحة الرئيسية</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: "Arial", sans-serif;
+      background-color: #f0f0f0;
+      color: #222;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: white;
+      padding: 15px 30px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: fixed;
+      width: 100%;
+      top: 0; left: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header .logo {
+      font-weight: bold;
+      font-size: 24px;
+      color: #000;
+      cursor: default;
+    }
+    nav a {
+      color: #000;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #007bff;
+    }
+    section {
+      padding: 100px 30px 60px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    #home {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      padding-top: 140px;
+    }
+    #home img {
+      width: 220px;
+      border-radius: 50%;
+      border: 3px solid #222;
+      object-fit: cover;
+    }
+    #home .intro-text {
+      max-width: 500px;
+      font-size: 18px;
+    }
+    h2 {
+      margin-bottom: 15px;
+      color: #000;
+    }
+    .section-content p {
+      margin-bottom: 15px;
+    }
+    /* Contact form */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 400px;
+    }
+    input, textarea {
+      padding: 10px;
+      font-size: 16px;
+      border: 1.5px solid #ccc;
+      border-radius: 5px;
+      resize: vertical;
+      transition: border-color 0.3s ease;
+    }
+    input:focus, textarea:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px 10px;
+      background: white;
+      color: #555;
+      border-top: 1px solid #ddd;
+      margin-top: 50px;
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      #home {
+        flex-direction: column;
+      }
+      nav a {
+        margin-left: 10px;
+        font-size: 14px;
+      }
+      #home img {
+        width: 150px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Mohamed Adel El Refaey</h1>
-        <p>طالب بكلية الهندسة - قسم الإلكترونيات والاتصالات، جامعة الدلتا</p>
-        <img src="assets/images/Mohamed Adel.png" alt="Mohamed Adel" class="profile"/>
-    </header>
+  <header>
+    <div class="logo">محمد عادل</div>
+    <nav>
+      <a href="#home">الرئيسية</a>
+      <a href="#about">عني</a>
+      <a href="#services">الخدمات</a>
+      <a href="#projects">المشاريع</a>
+      <a href="#contact">تواصل معنا</a>
+    </nav>
+  </header>
 
-    <section>
-        <h2>المناصب الطلابية</h2>
-        <ul>
-            <li>رئيس اتحاد طلاب الكلية</li>
-            <li>القائم بأعمال رئيس اتحاد طلاب الجامعة</li>
-            <li>رئيس فريق Myths Team</li>
-            <li>مسؤول متابعة منفذ حياة كريمة بالجامعة</li>
-            <li>مقرر أسرة أصدقاء الجودة بكلية الهندسة</li>
-            <li>رئيس الفرع الطلابي لـ IEEE بالجامعة</li>
-        </ul>
-    </section>
+  <section id="home">
+    <img src="https://avatars.githubusercontent.com/u/7033730?v=4" alt="صورة محمد عادل" />
+    <div class="intro-text">
+      <h2>مرحباً، أنا محمد عادل</h2>
+      <p>مهندس إلكترونيات واتصالات وطالب بكلية الهندسة بجامعة الدلتا. أعمل على مشاريع تقنية وريادية وأشارك في تطوير حلول مبتكرة.</p>
+    </div>
+  </section>
 
-    <section>
-        <h2>الشهادات والإنجازات</h2>
-        <ul>
-            <li>المركز الثالث على مستوى الجمهورية في برنامج فاليو</li>
-            <li>خريج برنامج كن سفيرًا - وزارة التخطيط</li>
-            <li>المنسق الطلابي للمؤتمر الطلابي الدولي بكلية الهندسة</li>
-            <li>المنسق الطلابي للمؤتمر الدولي للبحوث والإبتكار</li>
-            <li>رئيس ملتقى شباب السنبلاوين</li>
-            <li>نائب رئيس وحدة التنمية الصناعية باتحاد بشبابها</li>
-            <li>نائب رئيس كيان الشباب الاقتصادي التابع لوزارة التضامن</li>
-            <li>مسؤول متابعة وحدة محلية بمؤسسة حياة كريمة</li>
-            <li>أفضل متطوع بمؤسسة حياة كريمة بالدقهلية لعام 2024</li>
-            <li>مدير فرع مؤسسة ويل سبرينج بالمنصورة</li>
-        </ul>
-    </section>
+  <section id="about">
+    <h2>عني</h2>
+    <div class="section-content">
+      <p>أنا شغوف بمجال الهندسة والتقنيات الحديثة، أؤمن بأهمية تطوير مهاراتي والابتكار لخدمة المجتمع. أشارك في مبادرات تعليمية وريادية بهدف بناء جيل متميز.</p>
+    </div>
+  </section>
 
-    <section>
-        <h2>المشاريع</h2>
-        <ul>
-            <li>
-                <strong>Myths Solutions:</strong> فريق يقدم خدمات تقنية وهندسية (تصميم دوائر إلكترونية، 3D Modeling، تحليل بيانات، تسويق... إلخ).
-                <br/>تم قبوله في حاضنة Orange Corners Egypt التابعة لسفارة هولندا.
-            </li>
-            <li>
-                <strong>EcoNet:</strong> منصة لربط المستخدمين برواد الأجهزة الإلكترونية وشركات تدوير النفايات الإلكترونية.
-            </li>
-            <li>
-                <strong>Tukay:</strong> تطبيق نقل شبيه بأوبر ولكن خاص بالتكاتك، يشمل خصائص مثل التسعير المرن والرحلة المشتركة.
-            </li>
-            <li>
-                <strong>مشروع هندسي:</strong> نموذج مصعد مبني باستخدام Logic Gates.
-            </li>
-        </ul>
-    </section>
+  <section id="services">
+    <h2>الخدمات</h2>
+    <div class="section-content">
+      <ul>
+        <li>تطوير مواقع وتطبيقات ويب.</li>
+        <li>تصميم حلول تقنية مبتكرة.</li>
+        <li>التدريب وورش العمل في مجالات التقنية وريادة الأعمال.</li>
+      </ul>
+    </div>
+  </section>
 
-    <section>
-        <h2>تواصل معي</h2>
-        <p>
-            البريد الإلكتروني: <a href="mailto:MohamedAdelELRefaey@ieee.org">MohamedAdelELRefaey@ieee.org</a> / 
-            <a href="mailto:ma7033730@gmail.com">ma7033730@gmail.com</a><br/>
-            LinkedIn: <a href="https://www.linkedin.com/in/mohamed-adel-el-refaey/">mohamed-adel-el-refaey</a><br/>
-            Facebook: <a href="https://www.facebook.com/mohamedadel.elrefaey">mohamedadel.elrefaey</a><br/>
-            GitHub: <a href="https://github.com/mohamedadel-dev">mohamedadel-dev</a>
-        </p>
-    </section>
+  <section id="projects">
+    <h2>المشاريع</h2>
+    <div class="section-content">
+      <ul>
+        <li>مشروع EcoNet: تطبيق للحلول البيئية الذكية.</li>
+        <li>تطوير نظام نقل بالتكاتك للمناطق النائية.</li>
+        <li>بوت تعليمي تفاعلي للطلاب.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>تواصل معنا</h2>
+    <form>
+      <input type="text" placeholder="الاسم" required />
+      <input type="email" placeholder="البريد الإلكتروني" required />
+      <textarea rows="5" placeholder="رسالتك" required></textarea>
+      <button type="submit">إرسال</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 محمد عادل - جميع الحقوق محفوظة
+  </footer>
 </body>
 </html>
